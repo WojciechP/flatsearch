@@ -188,8 +188,8 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{22pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{22pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{22pt}{22pt}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{22pt}{22pt}\headerfontlight\color{graytext} #1}}
 % \newcommand*{\headerlastnamestyle}[1]{{\fontsize{22pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
@@ -397,9 +397,12 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
-  \newlength{\headertextwidth}
-  \newlength{\headerphotowidth}
-      \newlength{\photodim}
+\newlength{\headertextwidth}
+\newlength{\headerphotowidth}
+\newlength{\photodim}
+
+\setlength{\photodim}{1.3cm}
+\newcommand*{\drawphoto}{} % will be overritten later
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -407,13 +410,8 @@
 % Define a header for CV
 % Usage: \makecvheader
 \newcommand*{\makecvheader}[1][C]{%
-  \newcommand*{\drawphoto}{%
+  \renewcommand*{\drawphoto}{%
     \ifthenelse{\isundefined{\@photo}}{}{%
-      \ifthenelse{\equal{\@photoshape}{circle}}%
-        %{\setlength{\photodim}{1.3cm}}%
-        %{\setlength{\photodim}{1.8cm}}%
-        {\setlength{\photodim}{1cm}}%
-        {\setlength{\photodim}{1.3cm}}%
       \ifthenelse{\equal{\@photoedge}{edge}}%
         {\def\@photoborder{darkgray}}%
         {\def\@photoborder{none}}%
@@ -429,16 +427,18 @@
     % \setlength{\headertextwidth}{0.76\textwidth}
     % \setlength{\headerphotowidth}{0.24\textwidth}
 
-    \setlength{\headertextwidth}{0.66\textwidth}
-    \setlength{\headerphotowidth}{0.34\textwidth}
+    %\setlength{\headertextwidth}{0.66\textwidth}
+		\setlength{\headertextwidth}{\textwidth}
+    \addtolength{\headertextwidth}{-\headerphotowidth}
+    %\setlength{\headerphotowidth}{0.34\textwidth}
   }%
     % \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     % \headerfirstnamestyle{\@firstname \acvHeaderNameDelim \@lastname}%
     % \\[\acvHeaderAfterNameSkip]%
-  \begin{minipage}[c]{\headerphotowidth}%
+  \begin{minipage}[t][][t]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
   \end{minipage}
-  \begin{minipage}[c]{\headertextwidth}
+  \begin{minipage}[t][][t]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname }%
     %\headerfirstnamestyle{ und \@firstnameTwo}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastnameTwo}%
