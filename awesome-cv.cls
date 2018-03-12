@@ -188,8 +188,8 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{22pt}{22pt}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{22pt}{22pt}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{22pt}{1.5em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{22pt}{1.5em}\headerfontlight\color{graytext} #1}}
 % \newcommand*{\headerlastnamestyle}[1]{{\fontsize{22pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
@@ -266,7 +266,7 @@
 \newcommand*{\familyname}[1]{\def\@lastname{#1}}
 \def\@familyname{\@lastname}
 
-\newcommand*{\nameTwo}[2]{\def\@firstnameTwo{#1}\def\@lastnameTwo{#2}}
+\newcommand*{\secondname}[1]{\def\@secondname{#1}}
 
 % Define writer's address
 % Usage: \address{<address>}
@@ -370,7 +370,7 @@
 %% Define helper macros a user can change easily
 % Header
 \newcommand{\acvHeaderNameDelim}{\space}
-\newcommand{\acvHeaderAfterNameSkip}{.4mm}
+\newcommand{\acvHeaderAfterNameSkip}{.4cm}
 \newcommand{\acvHeaderAfterPositionSkip}{.4mm}
 \newcommand{\acvHeaderAfterAddressSkip}{-.5mm}
 \newcommand{\acvHeaderIconSep}{\space}
@@ -401,7 +401,7 @@
 \newlength{\headerphotowidth}
 \newlength{\photodim}
 
-\setlength{\photodim}{1.3cm}
+\setlength{\photodim}{1.4cm}
 \newcommand*{\drawphoto}{} % will be overritten later
 
 %-------------------------------------------------------------------------------
@@ -441,6 +441,11 @@
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname }%
+		\ifthenelse{\isundefined{\@secondname}}{}{%
+      \ifthenelse{\equal{\@secondname}{}}{}{%
+        \\[\acvHeaderAfterNameSkip]\headerfirstnamestyle{\@secondname}%
+      }%
+    }%
     %\headerfirstnamestyle{ und \@firstnameTwo}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastnameTwo}%
     % \headerfirstnamestyle{\@firstname \acvHeaderNameDelim \@lastname \acvHeaderNameDelim und \acvHeaderNameDelim \@firstnameTwo \acvHeaderNameDelim \@lastnameTwo}%
     \\[\acvHeaderAfterNameSkip]%
@@ -571,9 +576,9 @@
 % Define an environment for cventry
 \newenvironment{cventries}{%
   \vspace{\acvSectionContentTopSkip}
-  \begin{center}
+  % \begin{center}
 }{%
-  \end{center}
+  % \end{center}
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
@@ -589,6 +594,14 @@
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
+
+\newcommand*{\poorentry}[3]{%
+   \vspace{-2.0mm}%
+     \entrypositionstyle{#1} \\%
+     \entrydatestyle{#2} \descriptionstyle{#3} \\%
+   \vspace{4mm}%
+}
+ 
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%

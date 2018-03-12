@@ -1,57 +1,11 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Awesome Cover Letter
-% XeLaTeX Template
-% Version 1.1 (9/1/2016)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original authors:
-% Claud D. Park (posquit0.bj@gmail.com)
-% Lars Richter (mail@ayeks.de)
-% With modifications by:
-% Vel (vel@latextemplates.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important note:
-% This template must be compiled with XeLaTeX, the below lines will ensure this
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
-\documentclass[11pt, a4paper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
-\usepackage{pdfpages}
-
-\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
- 
-\fontdir[fonts/] % Specify the location of the included fonts
-
-% Color for highlights
-\colorlet{awesome}{awesome-red} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
-%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
-
-% Colors for text - uncomment and modify
-%\definecolor{darktext}{HTML}{414141}
-%\definecolor{text}{HTML}{414141}
-%\definecolor{graytext}{HTML}{414141}
-%\definecolor{lighttext}{HTML}{414141}
-
-\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
-
 %----------------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %----------------------------------------------------------------------------------------
 
-\photo{photo.jpg}
-\name{Daria Piotrowicz}{und Wojciech Ptak}
+\photo{photos/together.jpg}
+\name{Daria}{Piotrowicz}
+\secondname{Wojciech~Ptak}
 \address{Hohlstrasse 30, 8004 Zürich}
 \mobile{(+41) 765 667 895}
 
@@ -82,18 +36,13 @@
 
 \makecvfooter{Daria Piotrowicz~~~·~~~Wojciech Ptak}{}{Ackerstrasse 56} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
   
+\setlength{\headerphotowidth}{0.34\textwidth}
 %----------------------------------------------------------------------------------------
 
-\begin{document}
 
-\setlength{\headerphotowidth}{0.34\textwidth}
-\makecvheader % Print the header
+\makecvheader[R] % Print the header
 
 \makelettertitle % Print the title
-
-%----------------------------------------------------------------------------------------
-%	LETTER CONTENT
-%----------------------------------------------------------------------------------------
 
 \begin{cvletter}
 
@@ -112,21 +61,7 @@ Das führt zu gemeinsames monatliches Einkommen von circa 11000 Franken brutto.
 
 Wir freuen uns  auf eine persönliche Einladung und stehen für aufkommende Fragen gerne zur Verfügung.
 
-
-
-%------------------------------------------------
-
-%\lettersection{Why Initech?}
-
-%------------------------------------------------
-
-% \lettersection{Why Me?}
-
-%------------------------------------------------
-
 \end{cvletter}
-
-%----------------------------------------------------------------------------------------
 
 
 \makeletterclosing % Print the signature and enclosures
@@ -138,10 +73,3 @@ Wir freuen uns  auf eine persönliche Einladung und stehen für aufkommende Frag
   Wojciech Ptak: Betriebsauszug \\%
   Wojciech Ptak: Arbeitszeugnis \\%
 }
-
-\include{twocolumncv}
-
-\includepdf{attachments/betrieb-wp.pdf}
-\includepdf{attachments/arbeitsbeschaftigung.pdf}
-
-\end{document}

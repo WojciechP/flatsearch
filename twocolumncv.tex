@@ -2,7 +2,8 @@
 \renewcommand{\acvHeaderSocialSep}{\linebreak} % If you would like to change the social information separator from a pipe (|) to something else
 
 % Usage: \poorentry{where}{when}{what}
-\newcommand*{\poorentry}[3]{\cventry{#1}{}{}{#2}{#3}}
+%\newcommand*{\poorentry}[3]{\cventry{#1}{}{}{#2}{#3}}
+\secondname{}
 
 
 \setlength{\photodim}{0.96cm} % two column layout needs smaller pictures
@@ -10,7 +11,6 @@
 \setlength{\headerphotowidth}{0.34\textwidth}
 \name{Daria}{Piotrowicz}
 \photo[left,circle]{photos/daria.jpg}
-\nameTwo{}{}
 \address{Hohlstrasse 30, 8004 Zürich}
 \mobile{(+41) 76 403 08 69}
 \email{daria.piotrowicz92@gmail.com}
@@ -22,7 +22,6 @@
 \setlength{\headerphotowidth}{0.34\textwidth}
 \name{Wojciech}{Ptak}
 \photo[right,circle]{photos/wojtek.jpg}
-\nameTwo{}{}
 \address{Hohlstrasse 30, 8004 Zürich}
 \mobile{(+41) 76 566 78 95}
 \email{wojtek.ptak@gmail.com}
@@ -36,6 +35,7 @@
 \newcommand{\cvnextcolumn}{\end{minipage}\hfill\begin{minipage}[t]{0,45\textwidth}}
 
 \begin{cvcolumns}
+
 \poorentry{Kundenberaterin in Boutique Deni Cler}{2015--2017}{In Deni Cler beschäftigte ich mich mit Verkauf und Imageberatung.}
 \cvnextcolumn
 \poorentry{Software Engineer bei Google}{2016--heute}{Ich arbeite in einem kleinem Team das sich über die Infrastruktur kümmert.}
@@ -50,11 +50,11 @@
 
 \begin{cventries}
 
-\poorentry{Benedict Schule}{2017--heute}{Ich lerne Deutsch in einem Intensiv-Deutshkurs.}
+\poorentry{Benedict Schule}{2017--heute, Zürich}{Ich nehme in einem Intensiv-Deutschkurs teil.}
 
-\poorentry{Naturwissenschaftlichen Universität Breslau}{2012--2015}{}
+\poorentry{Naturwissenschaftlichen Universität Breslau}{2012--2015, Breslau, Polen}{}
 
-\poorentry{Gymnasium (Polnish: Lyzeum) in Radomsko}{2008--2011}{Mit Abitur abgeschlossen.}
+\poorentry{Gymnasium (Polnish: Lyzeum) in Radomsko}{2008--2011, Radomsko, Polen}{Mit Abitur abgeschlossen.}
 
 \end{cventries}
 
@@ -62,9 +62,9 @@
 
 \begin{cventries}
 
-\poorentry{Universität Warschau}{2011--2016}{Die Studium habe ich als M.SC in Informatik abgeschlossen.}
+\poorentry{Universität Warschau}{2011--2016, Warschau, Polen}{Die Studium habe ich als M.SC in Informatik abgeschlossen.}
 
-\poorentry{14. Gymnasium (Polnish: Lyzeum) in Breslau}{2008--2011}{Eine gute Schule in meinem Heimatort.}
+\poorentry{14. Gymnasium (Polnish: Lyzeum) in Breslau}{2008--2011, Breslau, Polen}{Eine gute Schule in meinem Heimatort.}
 
 \end{cventries}
 
