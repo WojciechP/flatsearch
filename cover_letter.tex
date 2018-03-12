@@ -27,6 +27,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[11pt, a4paper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+\usepackage{pdfpages}
 
 \geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
  
@@ -78,7 +79,7 @@
 
 \letterclosing{Mit freundlichen Grüssen,} % How the letter is closed
 
-%\letterenclosure[Attached]{Curriculum Vitae} % Any enclosures with the letter
+% \letterenclosure[Beilagen]{Wojciech Ptak: Arbeitsbesch``aftigung} % Any enclosures with the letter
 
 \makecvfooter{Daria Piotrowicz~~~·~~~Wojciech Ptak}{}{Ackerstrasse 56} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
   
@@ -102,7 +103,7 @@ Wir möchten uns vorstellen, weil wir die Wohnung am Ackerstrasse 56 sehr nett f
 
 Wir wohnen shon mehr als ein Jahr in der Schweiz und jetzt suchen wir nach eine ruhige Wohnung für uns.
 Wojciech arbeitet seit 2016 als Software Engineer bei Google und Daria lernt zur zeit Deutch um eine Arbeit zu anfangen.
-Das führt zu gemainsames monatliches Einkommen von circa 7500 Franken netto; ein [DOKUMENT] haben wir beigefügt.
+Das führt zu gemainsames monatliches Einkommen von circa 11000 Franken brutto; sine Arbeitszeugnis haben wir beigefügt.
 
 
 
@@ -121,6 +122,18 @@ Das führt zu gemainsames monatliches Einkommen von circa 7500 Franken netto; ei
 
 %----------------------------------------------------------------------------------------
 
+
 \makeletterclosing % Print the signature and enclosures
+
+\letterenclosurestyle{%
+  Beilagen:\\ %
+              %
+  Daria Piotrowicz: Betriebsauszug \\%
+  Wojciech Ptak: Betriebsauszug \\%
+  Wojciech Ptak: Arbeitszeugnis \\%
+}
+
+\includepdf{attachments/betrieb-wp.pdf}
+\includepdf{attachments/arbeitsbeschaftigung.pdf}
 
 \end{document}
