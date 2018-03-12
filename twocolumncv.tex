@@ -29,10 +29,27 @@
 \makecvheader[R]
 \end{minipage}
 
-\cvsection{Berufserfahrung}
-
 \newenvironment{cvcolumns}{\begin{minipage}[t]{0,45\textwidth}}{\end{minipage}}
 \newcommand{\cvnextcolumn}{\end{minipage}\hfill\begin{minipage}[t]{0,45\textwidth}}
+
+
+\cvsection{Über uns}
+
+\newcommand{\tbgenbox}[2]{\begin{minipage}[c][2cm][c]{7cm}#1\descriptionstyle{#2}\end{minipage}}
+\newcommand{\tbbox}[1]{\tbgenbox{\raggedleft}{#1}}
+\newcommand{\rightbox}[1]{\tbgenbox{\raggedright}{#1}}
+\newcommand{\smallimg}[1]{\begin{minipage}[c][2cm][c]{1cm}\includegraphics[width=1cm, height=1cm]{#1}\end{minipage}}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r c l }
+  \tbbox{lernt Deutsch bei der Benedict Schule}  & \smallimg{photos/book.png}~\smallimg{photos/pc.png} & \rightbox{arbeitet als Software Engineer bei Google} \\
+  \tbbox{kennt sehr gut English und gut Deutsch} & \smallimg{photos/world.png} & \rightbox{spricht perfekt English und gut Deutsch} \\
+  \tbbox{tanzt Zouk, West Coast Swing, Kizomba und Tango} & \smallimg{photos/dance.jpg} & \rightbox{tanzt Salsa, Kizomba und Tango} \\
+  \tbbox{treibt Yoga} & \smallimg{photos/yoga.png}~\smallimg{photos/sail.jpg} & \rightbox{kann segeln}
+\end{tabular*}
+
+
+\cvsection{Berufserfahrung}
+
 
 \begin{cvcolumns}
 
@@ -42,7 +59,6 @@
 
 \poorentry{Junior Software Engineer bei Evojam (Warschau, Polen)}{2015--2016}{Dort baute ich vershiedene Webapps.}
 \end{cvcolumns}
-
 
 \cvsection{Ausbildung}
 
