@@ -239,7 +239,7 @@
 %                Commands for personal information
 %-------------------------------------------------------------------------------
 % Define photo ID
-% Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}
+% Usage: \photo[circle|rectangle,edge|noedge,left|right|just]{<path-to-image>}
 \newcommand{\photo}[2][circle,edge,left]{%
   \def\@photo{#2}
   \@for\tmp:=#1\do{%
@@ -248,6 +248,8 @@
     \ifthenelse{\equal{\tmp}{edge} \or \equal{\tmp}{noedge}}%
       {\let\@photoedge\tmp}{}%
     \ifthenelse{\equal{\tmp}{left} \or \equal{\tmp}{right}}%
+      {\let\@photoalign\tmp}{}%
+    \ifthenelse{\equal{\tmp}{just}}%
       {\let\@photoalign\tmp}{}%
   }%
 }
@@ -430,6 +432,8 @@
     %\setlength{\headertextwidth}{0.66\textwidth}
 		\setlength{\headertextwidth}{\textwidth}
     \addtolength{\headertextwidth}{-\headerphotowidth}
+    \ifthenelse{\equal{\@photoalign}{just}}{\setlength{\headertextwidth}{\textwidth}}{}
+    \ifthenelse{\equal{\@photoalign}{just}}{\setlength{\headerphotowidth}{\textwidth}}{}
     %\setlength{\headerphotowidth}{0.34\textwidth}
   }%
     % \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
@@ -440,6 +444,7 @@
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
+		\ifthenelse{\equal{\@photoalign}{just}}{\drawphoto\\\vspace{0.5cm}}{}%
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname }%
 		\ifthenelse{\isundefined{\@secondname}}{}{%
       \ifthenelse{\equal{\@secondname}{}}{}{%
