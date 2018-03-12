@@ -41,20 +41,16 @@
 %\definecolor{lighttext}{HTML}{414141}
 
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\\} % If you would like to change the social information separator from a pipe (|) to something else
+
+% Usage: \poorentry{where}{when}{what}
+\newcommand*{\poorentry}[3]{\cventry{#1}{}{}{#2}{#3}}
 
 %----------------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %----------------------------------------------------------------------------------------
 
-\name{Claud D.}{Park}
-\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
-\mobile{(+82) 10-9030-1843}
-
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
 %\skype{skypeid}
 %\stackoverflow{SOid}{SOname}
 %\twitter{@twit}
@@ -63,34 +59,101 @@
 %\xing{xing name}
 %\extrainfo{test} % Other text you want to include on this line
 
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert} % Your expertise/fields
-\quote{``Make the change that you want to see in the world."} % A quote or statement
+% \position{Software Engineer{\enskip\cdotp\enskip}Security Expert} % Your expertise/fields
+%\quote{``Während des Tages lerne ich Deutch, am Abend -- tango."} % A quote or statement
 
-\makecvfooter{\today}{Claud D. Park~~~·~~~Résumé}{\thepage} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+% \makecvfooter{\today}{Claud D. Park~~~·~~~Résumé}{\thepage} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
 
 %----------------------------------------------------------------------------------------
 
 \begin{document}
 
-\makecvheader % Print the header
-
+%\newgeometry{left=.2cm,right=.2cm, top=1.5cm}
+%\begin{minipage}[t]{0,5\textwidth}
+%\makecvheader % Print the header
+%
+%%----------------------------------------------------------------------------------------
+%%	CV/RESUME CONTENT
+%%----------------------------------------------------------------------------------------
+%
+%\cvsection{Berufserfahrung}
+%
+%\begin{cventries}
+%
+%\poorentry{Kundenberaterin in Boutique Deni Cler}{2015--2017}{verkauf und Pflege}
+%
+%\end{cventries}
+%
+%\cvsection{Ausbildung}
+%
+%\begin{cventries}
+%
+%
+%\end{cventries}
+%
+%
+%\end{minipage}%
 %----------------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%----------------------------------------------------------------------------------------
 
-\input{cv-sections/education.tex}
-\input{cv-sections/skills.tex}
-\input{cv-sections/experience.tex}
+\begin{minipage}[t]{0,5\textwidth}
+\name{Daria}{Piotrowicz}
+\photo[left,circle]{photos/daria.jpg}
+\nameTwo{}{}
+\address{Hohlstrasse 30 \\ 8004 Zürich}
+\mobile{(+41) 76 403 08 69}
+\email{d...@gmail.com}
+\makecvheader[L]
 
-\newpage % Force a new page for looks
+\end{minipage}
+\begin{minipage}[t]{0,5\textwidth}
+\name{Wojciech}{Ptak}
+\photo[right,circle]{photos/wojtek.jpg}
+\nameTwo{}{}
+\address{Hohlstrasse 30 \\ 8004 Zürich}
+\mobile{(+41) 76 566 78 95}
+\email{wojtek.ptak@gmail.com}
+\makecvheader[R]
+\end{minipage}
 
-\input{cv-sections/extracurricular.tex}
-\input{cv-sections/honors.tex}
-\input{cv-sections/presentation.tex}
-\input{cv-sections/writing.tex}
-\input{cv-sections/committees.tex}
+\cvsection{Berufserfahrung}
 
-%----------------------------------------------------------------------------------------
+\newenvironment{cvcolumns}{\begin{minipage}[t]{0,45\textwidth}}{\end{minipage}}
+\newcommand{\cvnextcolumn}{\end{minipage}\hfill\begin{minipage}[t]{0,45\textwidth}}
+
+\begin{cvcolumns}
+\poorentry{Kundenberaterin in Boutique Deni Cler}{2015--2017}{In Deni Cler beschäftigte ich mich mit Verkauf und Imageberatung.}
+\cvnextcolumn
+\poorentry{Software Engineer bei Google}{2016--heute}{Ich arbeite in einem kleinem Team das sich über die Infrastruktur kümmert.}
+
+\poorentry{Junior Software Engineer bei Evojam (Warschau, Polen)}{2015--2016}{Dort baute ich vershiedene Webapps.}
+\end{cvcolumns}
+
+
+\cvsection{Ausbildung}
+
+\begin{cvcolumns}
+
+\begin{cventries}
+
+\poorentry{Benedict Schule}{2017--heute}{Ich lerne Deutsch in einem Intensiv-Deutshkurs.}
+
+\poorentry{Naturwissenschaftlichen Universität Breslau}{2012--2015}{}
+
+\poorentry{Gymnasium (Polnish: Lyzeum) in Radomsko}{2008--2011}{Mit Abitur abgeschlossen.}
+
+\end{cventries}
+
+\cvnextcolumn
+
+\begin{cventries}
+
+\poorentry{Universität Warschau}{2011--2016}{Die Studium habe ich als M.SC in Informatik abgeschlossen.}
+
+\poorentry{14. Gymnasium (Polnish: Lyzeum) in Breslau}{2008--2011}{Eine gute Schule in meinem Heimatort.}
+
+\end{cventries}
+
+\end{cvcolumns}
+
 
 \end{document}

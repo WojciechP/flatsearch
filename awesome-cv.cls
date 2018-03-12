@@ -397,6 +397,9 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+  \newlength{\headertextwidth}
+  \newlength{\headerphotowidth}
+      \newlength{\photodim}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -406,10 +409,11 @@
 \newcommand*{\makecvheader}[1][C]{%
   \newcommand*{\drawphoto}{%
     \ifthenelse{\isundefined{\@photo}}{}{%
-      \newlength{\photodim}
       \ifthenelse{\equal{\@photoshape}{circle}}%
+        %{\setlength{\photodim}{1.3cm}}%
+        %{\setlength{\photodim}{1.8cm}}%
+        {\setlength{\photodim}{1cm}}%
         {\setlength{\photodim}{1.3cm}}%
-        {\setlength{\photodim}{1.8cm}}%
       \ifthenelse{\equal{\@photoedge}{edge}}%
         {\def\@photoborder{darkgray}}%
         {\def\@photoborder{none}}%
@@ -418,23 +422,27 @@
       \end{tikzpicture}
     }%
   }
-  \newlength{\headertextwidth}
-  \newlength{\headerphotowidth}
   \ifthenelse{\isundefined{\@photo}}{
     \setlength{\headertextwidth}{\textwidth}
     \setlength{\headerphotowidth}{0cm}
   }{%
-    \setlength{\headertextwidth}{0.76\textwidth}
-    \setlength{\headerphotowidth}{0.24\textwidth}
+    % \setlength{\headertextwidth}{0.76\textwidth}
+    % \setlength{\headerphotowidth}{0.24\textwidth}
+
+    \setlength{\headertextwidth}{0.66\textwidth}
+    \setlength{\headerphotowidth}{0.34\textwidth}
   }%
+    % \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
+    % \headerfirstnamestyle{\@firstname \acvHeaderNameDelim \@lastname}%
+    % \\[\acvHeaderAfterNameSkip]%
   \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
-    %\headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname }%
+    \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname }%
     %\headerfirstnamestyle{ und \@firstnameTwo}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastnameTwo}%
-    \headerfirstnamestyle{\@firstname \acvHeaderNameDelim \@lastname \acvHeaderNameDelim und \acvHeaderNameDelim \@firstnameTwo \acvHeaderNameDelim \@lastnameTwo}%
+    % \headerfirstnamestyle{\@firstname \acvHeaderNameDelim \@lastname \acvHeaderNameDelim und \acvHeaderNameDelim \@firstnameTwo \acvHeaderNameDelim \@lastnameTwo}%
     \\[\acvHeaderAfterNameSkip]%
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\[\acvHeaderAfterAddressSkip]}}%
