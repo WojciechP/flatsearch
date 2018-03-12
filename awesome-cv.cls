@@ -435,10 +435,10 @@
     % \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     % \headerfirstnamestyle{\@firstname \acvHeaderNameDelim \@lastname}%
     % \\[\acvHeaderAfterNameSkip]%
-  \begin{minipage}[t][][t]{\headerphotowidth}%
+  \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
   \end{minipage}
-  \begin{minipage}[t][][t]{\headertextwidth}
+  \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
     \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname }%
     %\headerfirstnamestyle{ und \@firstnameTwo}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastnameTwo}%
